@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elleva - Odontologia Especializada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Cores da Marca Elleva */
+            --terracota: #e73111;
+            --verde-oliva: #3E4E3A;
+            --creme-suave: #FDFBFA;
+
+            /* Cores Específicas: Seção "Agende seu horário" */
+            --agende-fundo-secao: #41e7b0;
+            --agende-fundo-form: var(--creme-suave);
+            --agende-titulo: #db000b;
+            /* Cinza Escuro */
+            --agende-subtitulo: #000000d0;
+            /* Cinza Médio */
+            --agende-labels: var(--verde-oliva);
+            --agende-inputs: #FFFFFF;
+            --agende-inputs-borda: #dd0cb0;
+            --agende-inputs-focus: var(--terracota);
+            --agende-botao-fundo: var(--terracota);
+            --agende-botao-texto: #FFFFFF;
+
+            /* Cores Específicas: Cabeçalho (Header) */
+            --header-fundo: rgba(57, 192, 147, 0.95);
+            --header-borda: #15b931;
+            /* gray-100 */
+            --header-titulo: #111827;
+            /* gray-900 */
+            --header-subtitulo: var(--terracota);
+            --header-links: #4b5563;
+            /* gray-600 */
+            --header-links-hover: var(--terracota);
+            --header-botao-fundo: var(--terracota);
+            --header-botao-texto: #ffffff;
+            --header-menu-mobile: var(--terracota);
+
+            /* Cores Específicas: Seção Hero (Início) */
+            --hero-tag-fundo: rgba(28, 6, 228, 0.1);
+            --hero-tag-texto: var(--terracota);
+            --hero-titulo: #111827;
+            --hero-destaque: var(--terracota);
+            --hero-texto: #4b5563;
+            --hero-btn1-fundo: var(--terracota);
+            --hero-btn1-texto: #ffffff;
+            --hero-btn2-fundo: #87d2f5;
+            --hero-btn2-texto: var(--verde-oliva);
+            --hero-btn2-borda: var(--verde-oliva);
+            --hero-bolha: rgba(255, 255, 255, 0.1);
+            --hero-fundo-overlay: rgba(0, 253, 253, 0.85);
+            --hero-fundo-imagem: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2070');
+
+            /* Cores Específicas: Seção Tratamentos */
+            --cards-fundo-secao: var(--creme-suave);
+            --cards-fundo-container: #30a176;
+            --cards-borda-container: #e5e7eb;
+            --cards-titulo-secao: #111827;
+            --cards-linha-horizontal: var(--terracota);
+            --cards-fundo-cartao: #71ddaa;
+            --cards-borda-cartao: #ee1a3e;
+            --cards-icone-fundo: rgba(231, 49, 17, 0.1);
+            --cards-icone-fundo-hover: var(--terracota);
+            --cards-icone-cor: var(--terracota);
+            --cards-icone-cor-hover: #ffffff;
+            --cards-titulo-cartao: var(--verde-oliva);
+            --cards-texto-cartao: #6b7280;
+            --cards-borda-destaque: var(--terracota);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-terracota {
+            background-color: var(--terracota);
+        }
+
+        .text-terracota {
+            color: var(--terracota);
+        }
+
+        .border-terracota {
+            border-color: var(--terracota);
+        }
+
+        .bg-verde-oliva {
+            background-color: var(--verde-oliva);
+        }
+
+        .text-verde-oliva {
+            color: var(--verde-oliva);
+        }
+
+        .bg-creme {
+            background-color: var(--creme-suave);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--header-links-hover);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(var(--hero-fundo-overlay), var(--hero-fundo-overlay)),
+                var(--hero-fundo-imagem);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--terracota);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- Cabeçalho -->
+    <header class="fixed w-full z-50 backdrop-blur-md border-b"
+        style="background-color: var(--header-fundo); border-color: var(--header-borda);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="logo-circle">
+                        <img src="{% static 'logo_elleva.jpg' %}" alt="Logo Elleva"
+                            onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'text-white font-bold\'>E</span>'"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <span
+                            class="text-xl font-bold tracking-tight leading-none uppercase text-[var(--header-titulo)]">Elleva</span>
+                        <span
+                            class="text-[10px] tracking-[0.2em] font-medium uppercase text-[var(--header-subtitulo)]">Odontologia
+                            Especializada</span>
+                    </div>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#home"
+                        class="nav-link text-[var(--header-links)] hover:text-[var(--header-links-hover)]">Início</a>
+                    <a href="#servicos"
+                        class="nav-link text-[var(--header-links)] hover:text-[var(--header-links-hover)]">Tratamentos</a>
+                    <a href="#sobre"
+                        class="nav-link text-[var(--header-links)] hover:text-[var(--header-links-hover)]">A Clínica</a>
+                    <a href="#contato"
+                        class="px-6 py-2.5 rounded-full hover:scale-105 transition-all shadow-md bg-[var(--header-botao-fundo)] text-[var(--header-botao-texto)]">Agendar
+                        Consulta</a>
+                </nav>
+
+                <button class="md:hidden p-2 text-[var(--header-menu-mobile)]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Rodapé -->
+    <footer class="bg-white pt-12 pb-8 border-t border-gray-100 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center">
+                <div class="logo-circle mb-6 scale-110">
+                    <img src="{% static 'logo_elleva.jpg' %}" alt="Logo Elleva" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-2xl font-bold tracking-tight mb-2">ELLEVA</h3>
+                <p class="text-terracota text-xs uppercase tracking-[0.3em] font-medium mb-10">Odontologia Especializada
+                </p>
+
+                <div class="flex space-x-10 mb-12 text-sm font-semibold text-gray-400">
+                    <a href="#" class="hover:text-terracota transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-terracota transition-colors">Facebook</a>
+                    <a href="#" class="hover:text-terracota transition-colors">Localização</a>
+                </div>
+
+                <div class="text-gray-300 text-[10px] uppercase tracking-widest space-y-2">
+                    <p>&copy; 2024 Elleva Odontologia. Todos os direitos reservados.</p>
+                    <p>RT: Dra. Maria Isabela Lopes Gandolfo - CRO-SP 00000</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/551896448474" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl hover:scale-110 transition-transform flex items-center justify-center hover:bg-[#20ba56]"
+        aria-label="Fale conosco no WhatsApp">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+</body>
+
+</html>
