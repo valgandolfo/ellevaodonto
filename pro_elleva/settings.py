@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Apps do projeto
-    "nome_do_app",
+    "app_elleva",
 ]
 
 MIDDLEWARE = [
