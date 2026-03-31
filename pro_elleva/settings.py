@@ -156,8 +156,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Necessário no Railway para Django reconhecer requests HTTPS atrás de proxy.
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
+# Ativa segurança HTTPS e Cookies Seguros se estivermos em Produção (DEBUG=False)
+SECURE_SSL_REDIRECT = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SAMESITE = "Lax"
 SESSION_COOKIE_SAMESITE = "Lax"
