@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Apps do projeto
     "app_elleva",
+    "pwa",
 ]
 
 MIDDLEWARE = [
@@ -162,3 +163,30 @@ SESSION_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SAMESITE = "Lax"
 SESSION_COOKIE_SAMESITE = "Lax"
+
+# ===================================================================
+# PWA CONFIGURATION
+# ===================================================================
+PWA_APP_NAME = "Elleva Odontologia"
+PWA_APP_DESCRIPTION = "Clínica Odontológica Especializada"
+PWA_APP_THEME_COLOR = "#e73111"
+PWA_APP_BACKGROUND_COLOR = "#FDFBFA"
+PWA_APP_DISPLAY = "standalone"
+PWA_APP_SCOPE = "/"
+PWA_APP_ORIENTATION = "any"
+PWA_APP_START_URL = "/"
+PWA_APP_STATUS_BAR_COLOR = "default"
+PWA_APP_ICONS = [
+    {
+        "src": "/static/logo_elleva.jpg",
+        "sizes": "192x192"
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        "src": "/static/logo_elleva.jpg",
+        "sizes": "192x192"
+    }
+]
+PWA_APP_DIR = "ltr"
+PWA_APP_LANG = "pt-BR"
