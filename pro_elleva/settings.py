@@ -20,28 +20,39 @@ DEBUG = config("DJANGO_DEBUG", default=True, cast=bool)
 _ALLOWED_HOSTS_BASE = [
     "localhost",
     "127.0.0.1",
+    "igeracao.com.br",
+    "www.igeracao.com.br",
+    "allmedias-production.up.railway.app",
     ".railway.app",
 ]
 
 _CSRF_ORIGINS_BASE = [
     "http://localhost",
+    "http://localhost:8000",
     "http://127.0.0.1",
+    "http://127.0.0.1:8000",
+    "https://igeracao.com.br",
+    "https://www.igeracao.com.br",
+    "https://allmedias-production.up.railway.app",
+    "https://*.railway.app",
 ]
 
-# Permite extensão via env var (ex.: novo domínio no futuro)
-_extra_hosts = [h.strip() for h in config("DJANGO_ALLOWED_HOSTS", default="", cast=Csv()) if h.strip()]
-_extra_origins = [o.strip(' "\'') for o in config("CSRF_TRUSTED_ORIGINS", default="", cast=Csv()) if o.strip(' "\'')]
+# Lendo variáveis de hosts e origens confiáveis, aceitando tanto os nomes antigos quanto os novos
+_extra_hosts = [
+    h.strip() for h in config("ALLOWED_HOSTS", default=config("DJANGO_ALLOWED_HOSTS", default=""), cast=Csv()) if h.strip()
+]
 
-# Tratamento para Scheme HTTPS obrigatório no CSRF do Django 4+
-_safe_origins = []
-for orig in _extra_origins:
-    if orig and not orig.startswith('http'):
-        _safe_origins.append('https://' + orig)
-    else:
-        _safe_origins.append(orig)
+_extra_origins = []
+for o in config("CSRF_TRUSTED_ORIGINS", default=config("DJANGO_CSRF_TRUSTED_ORIGINS", default=""), cast=Csv()):
+    origin = o.strip()
+    if origin:
+        # Django 4+ exige o protocolo (https://)
+        if not origin.startswith(('http://', 'https://')):
+            origin = f'https://{origin}'
+        _extra_origins.append(origin)
 
 ALLOWED_HOSTS = list({*_ALLOWED_HOSTS_BASE, *_extra_hosts})
-CSRF_TRUSTED_ORIGINS = list({*_CSRF_ORIGINS_BASE, *_safe_origins})
+CSRF_TRUSTED_ORIGINS = list({*_CSRF_ORIGINS_BASE, *_extra_origins})
 
 
 # Application definition
