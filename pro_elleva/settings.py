@@ -35,6 +35,9 @@ _extra_origins = [o.strip() for o in config("CSRF_TRUSTED_ORIGINS", default="", 
 ALLOWED_HOSTS = list({*_ALLOWED_HOSTS_BASE, *_extra_hosts})
 CSRF_TRUSTED_ORIGINS = list({*_CSRF_ORIGINS_BASE, *_extra_origins})
 
+if DEBUG:
+    ALLOWED_HOSTS.append("*")
+
 
 # Application definition
 INSTALLED_APPS = [
