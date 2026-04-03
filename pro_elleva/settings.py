@@ -20,9 +20,9 @@ DEBUG = config("DJANGO_DEBUG", default=True, cast=bool)
 _ALLOWED_HOSTS_BASE = [
     "localhost",
     "127.0.0.1",
-    "igeracao.com.br",
-    "www.igeracao.com.br",
-    "allmedias-production.up.railway.app",
+    "ellevaodontologia.com.br",
+    "www.ellevaodontologia.com.br",
+    "ellevaodonto-production.up.railway.app",
     ".railway.app",
 ]
 
@@ -31,9 +31,9 @@ _CSRF_ORIGINS_BASE = [
     "http://localhost:8000",
     "http://127.0.0.1",
     "http://127.0.0.1:8000",
-    "https://igeracao.com.br",
-    "https://www.igeracao.com.br",
-    "https://allmedias-production.up.railway.app",
+    "https://ellevaodontologia.com.br",
+    "https://www.ellevaodontologia.com.br",
+    "https://ellevaodonto-production.up.railway.app",
     "https://*.railway.app",
 ]
 
