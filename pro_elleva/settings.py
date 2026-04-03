@@ -29,7 +29,7 @@ _CSRF_ORIGINS_BASE = [
 ]
 
 # Permite extensão via env var (ex.: novo domínio no futuro)
-_extra_hosts = [h.strip() for h in config("ALLOWED_HOSTS", default="", cast=Csv()) if h.strip()]
+_extra_hosts = [h.strip() for h in config("DJANGO_ALLOWED_HOSTS", default="", cast=Csv()) if h.strip()]
 _extra_origins = [o.strip() for o in config("CSRF_TRUSTED_ORIGINS", default="", cast=Csv()) if o.strip()]
 
 ALLOWED_HOSTS = list({*_ALLOWED_HOSTS_BASE, *_extra_hosts})
