@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 from app_elleva.views import agendar_consulta
 
 urlpatterns = [
@@ -24,4 +24,5 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('agendar/', agendar_consulta, name='agendar_consulta'),
     path('', include('pwa.urls')),
+    path('favicon.ico', RedirectView.as_view(url='/static/logo_elleva.jpg', permanent=True)),
 ]
