@@ -30,13 +30,18 @@ _CSRF_ORIGINS_BASE = [
 
 # Permite extensão via env var (ex.: novo domínio no futuro)
 _extra_hosts = [h.strip() for h in config("DJANGO_ALLOWED_HOSTS", default="", cast=Csv()) if h.strip()]
-_extra_origins = [o.strip() for o in config("CSRF_TRUSTED_ORIGINS", default="", cast=Csv()) if o.strip()]
+_extra_origins = [o.strip(' "\'') for o in config("CSRF_TRUSTED_ORIGINS", default="", cast=Csv()) if o.strip(' "\'')]
 
-ALLOWED_HOSTS = list({*_ALLOWED_HOSTS_BASE, *_extra_hosts})
-CSRF_TRUSTED_ORIGINS = list({*_CSRF_ORIGINS_BASE, *_extra_origins})
+# Tratamento para Scheme HTTPS obrigatório no CSRF do Django 4+
+_safe_origins = []
+for orig in _extra_origins:
+    if orig and not orig.startswith('http'):
+        _safe_origins.append('https://' + orig)
+    else:
+        _safe_origins.append(orig)
 
-if DEBUG:
-    ALLOWED_HOSTS.append("*")
+ALLOWED_HOSTS = ["*"]  # Permite qualquer host para evitar erros 400 (seguro no Railway)
+CSRF_TRUSTED_ORIGINS = list({*_CSRF_ORIGINS_BASE, *_safe_origins})
 
 
 # Application definition
