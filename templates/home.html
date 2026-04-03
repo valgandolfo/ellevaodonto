@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
+<!-- Include Swiper's CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<style>
+    .mySwiper .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
     <!-- Hero -->
     <section id="home" class="pt-28 pb-6 lg:pt-32 lg:pb-10 hero-gradient">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,9 +79,19 @@
     <section id="sobre" class="py-12 lg:py-20 bg-verde-oliva text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                <div class="grid grid-cols-2 gap-3 sm:gap-4">
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1000" alt="Consultório" class="rounded-2xl h-48 sm:h-64 w-full object-cover">
-                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=1000" alt="Especialista" class="rounded-2xl h-48 sm:h-64 w-full object-cover mt-4 sm:mt-8">
+                <div class="w-full relative shadow-2xl rounded-2xl overflow-hidden">
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper h-64 sm:h-80 w-full bg-black/20">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_1.png' %}" alt="A Clínica 1"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_2.png' %}" alt="A Clínica 2"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_3.png' %}" alt="A Clínica 3"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_4.jpeg' %}" alt="A Clínica 4"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_5.png' %}" alt="A Clínica 5"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_6.png' %}" alt="A Clínica 6"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </div>
                 <div class="mt-8 lg:mt-0">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 italic">Sua melhor versão começa na Elleva.</h2>
@@ -175,5 +195,28 @@
                 e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
             });
         }
+    </script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (document.querySelector('.mySwiper')) {
+                var swiper = new Swiper(".mySwiper", {
+                    spaceBetween: 0,
+                    centeredSlides: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    loop: true,
+                    effect: "fade",
+                });
+            }
+        });
     </script>
 {% endblock %}
