@@ -40,7 +40,7 @@ for orig in _extra_origins:
     else:
         _safe_origins.append(orig)
 
-ALLOWED_HOSTS = ["*"]  # Permite qualquer host para evitar erros 400 (seguro no Railway)
+ALLOWED_HOSTS = list({*_ALLOWED_HOSTS_BASE, *_extra_hosts})
 CSRF_TRUSTED_ORIGINS = list({*_CSRF_ORIGINS_BASE, *_safe_origins})
 
 
