@@ -8,18 +8,20 @@ def resize_image(input_path, output_path, size=(800, 800)):
             if img.mode in ("RGBA", "P"):
                 img = img.convert("RGB")
             
-            # Crop to square
+            # Crop to square (focusing on the top for portraits)
             width, height = img.size
             if width > height:
+                # Wide image: center crop horizontally
                 left = (width - height) / 2
                 top = 0
                 right = (width + height) / 2
                 bottom = height
             else:
+                # Tall image: crop from the top (with 5% offset for headroom if possible)
                 left = 0
-                top = (height - width) / 2
+                top = 0 # Starting from the very top to preserve the head
                 right = width
-                bottom = (height + width) / 2
+                bottom = width
             
             img = img.crop((left, top, right, bottom))
             img = img.resize(size, Image.Resampling.LANCZOS)
