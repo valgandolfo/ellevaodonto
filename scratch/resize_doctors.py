@@ -8,22 +8,27 @@ def resize_image(input_path, output_path, size=(800, 800)):
             if img.mode in ("RGBA", "P"):
                 img = img.convert("RGB")
             
-            # Crop to square (focusing on the top for portraits)
+            # Crop to square (focusing on the top for portraits with extra headroom)
             width, height = img.size
-            if width > height:
+            if height > width:
+                # Tall image: Add artificial headroom by sampling background color
+                headroom = int(width * 0.15) # Add 15% more space at the top
+                bg_color = img.getpixel((5, 5)) # Sample color from top-left
+                new_img = Image.new("RGB", (width, height + headroom), bg_color)
+                new_img.paste(img, (0, headroom))
+                
+                left = 0
+                top = 0 
+                right = width
+                bottom = width
+                img = new_img.crop((left, top, right, bottom))
+            else:
                 # Wide image: center crop horizontally
                 left = (width - height) / 2
                 top = 0
                 right = (width + height) / 2
                 bottom = height
-            else:
-                # Tall image: crop from the top (with 5% offset for headroom if possible)
-                left = 0
-                top = 0 # Starting from the very top to preserve the head
-                right = width
-                bottom = width
-            
-            img = img.crop((left, top, right, bottom))
+                img = img.crop((left, top, right, bottom))
             img = img.resize(size, Image.Resampling.LANCZOS)
             img.save(output_path, "JPEG", quality=90)
             print(f"Resized {input_path} to {output_path}")
