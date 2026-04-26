@@ -35,7 +35,7 @@
             --contato-botao-texto: #FFFFFF;
 
             /* Cores Específicas: Cabeçalho (Header) */
-            --header-fundo: rgba(15, 23, 42, 0.8);
+            --header-fundo: rgba(63, 107, 77, 0.8);
             --header-borda: rgba(255, 255, 255, 0.1);
             --header-titulo: #ffffff;
             --header-subtitulo: var(--terracota);
@@ -47,7 +47,7 @@
 
             /* Cores Específicas: Referência em Especialidades (Topo) */
             --referencia-fundo-secao: transparent;
-            --referencia-fundo-container: rgba(61, 194, 128, 0.6);
+            --referencia-fundo-container: rgba(3, 167, 145, 0.6);
             /* Variável que você quer alterar */
             --referencia-borda-container: rgba(255, 255, 255, 0.1);
             --referencia-tag-fundo: rgba(231, 49, 17, 0.15);
@@ -65,7 +65,7 @@
 
             /* Cores Específicas: Tratamentos Especializados */
             --tratamentos-fundo-secao: transparent;
-            --tratamentos-fundo-container: rgba(80, 240, 218, 0.6);
+            --tratamentos-fundo-container: rgba(96, 190, 83, 0.6);
             /* Cor que você já ajustou */
             --tratamentos-borda-container: rgba(255, 255, 255, 0.1);
             --tratamentos-titulo-secao: #ffffff;
@@ -82,7 +82,7 @@
 
             /* Cores Específicas: A Clínica (Sobre) */
             --sobre-fundo-secao: transparent;
-            --sobre-fundo-container: rgba(15, 23, 42, 0.85);
+            --sobre-fundo-container: rgba(3, 167, 145, 0.6);
             --sobre-borda-container: rgba(255, 255, 255, 0.2);
             --sobre-titulo: #ffffff;
             --sobre-texto: #d1d5db;
@@ -91,7 +91,7 @@
 
             /* Cores Específicas: Equipe Especializada */
             --equipe-fundo-secao: transparent;
-            --equipe-fundo-container: rgba(15, 23, 42, 0.85);
+            --equipe-fundo-container: rgba(170, 31, 175, 0.6);
             --equipe-borda-container: rgba(255, 255, 255, 0.2);
             --equipe-titulo: var(--terracota);
             --equipe-nome-medico: #ffffff;
@@ -102,7 +102,7 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            background-image: url('{% static "imagens/fundo_novo_raio.jpg" %}');
+            background-image: url('{% static "imagens/new_background.png" %}');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -168,8 +168,8 @@
         }
 
         .logo-circle {
-            width: 48px;
-            height: 48px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             overflow: hidden;
             display: flex;
@@ -206,8 +206,8 @@
     <!-- Cabeçalho -->
     <header class="fixed w-full z-50 backdrop-blur-md border-b"
         style="background-color: var(--header-fundo); border-color: var(--header-borda);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+            <div class="flex justify-between items-center h-32">
                 <div class="flex items-center space-x-3">
                     <div class="logo-circle">
                         <img src="{% static 'logo_elleva.jpg' %}" alt="Logo Elleva"
@@ -232,6 +232,8 @@
                         class="nav-link text-[var(--header-links)] hover:text-[var(--header-links-hover)]">A Clínica</a>
                     <a href="#equipe"
                         class="nav-link text-[var(--header-links)] hover:text-[var(--header-links-hover)]">Equipe</a>
+                    <a href="#blog"
+                        class="nav-link text-[var(--header-links)] hover:text-[var(--header-links-hover)]">Blog</a>
                     <a href="#contato"
                         class="px-6 py-2.5 rounded-full hover:scale-105 transition-all shadow-md bg-[var(--header-botao-fundo)] text-[var(--header-botao-texto)]">Agendar
                         Consulta</a>
@@ -248,11 +250,12 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu"
-            class="hidden md:hidden absolute top-20 left-0 w-full bg-[var(--header-fundo)] border-b shadow-lg flex-col items-center py-4 space-y-4">
+            class="hidden md:hidden absolute top-32 left-0 w-full bg-[var(--header-fundo)] border-b shadow-lg flex-col items-center py-4 space-y-4">
             <a href="#home" class="mobile-nav-link text-[var(--header-links)] font-medium">Início</a>
             <a href="#servicos" class="mobile-nav-link text-[var(--header-links)] font-medium">Tratamentos</a>
             <a href="#sobre" class="mobile-nav-link text-[var(--header-links)] font-medium">A Clínica</a>
             <a href="#equipe" class="mobile-nav-link text-[var(--header-links)] font-medium">Equipe</a>
+            <a href="#blog" class="mobile-nav-link text-[var(--header-links)] font-medium">Blog</a>
             <a href="#contato"
                 class="mobile-nav-link px-6 py-2.5 rounded-full shadow-md bg-[var(--header-botao-fundo)] text-[var(--header-botao-texto)] font-medium">Agendar
                 Consulta</a>
