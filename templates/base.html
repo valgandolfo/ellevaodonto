@@ -68,7 +68,7 @@
             --tratamentos-fundo-container: rgba(96, 190, 83, 0.6);
             /* Cor que você já ajustou */
             --tratamentos-borda-container: rgba(255, 255, 255, 0.1);
-            --tratamentos-titulo-secao: #ffffff;
+            --tratamentos-titulo-secao: var(--terracota);
             --tratamentos-linha-horizontal: var(--terracota);
             --tratamentos-fundo-card: rgba(15, 23, 42, 0.8);
             --tratamentos-borda-card: rgba(231, 49, 17, 0.3);
@@ -97,12 +97,21 @@
             --equipe-nome-medico: #ffffff;
             --equipe-especialidade: #d1d5db;
             --equipe-borda-foto: var(--terracota);
+
+            /* Cores Específicas: Rodapé (Footer) */
+            --footer-fundo: #217756;
+            --footer-borda: #032977;
+            --footer-titulo: #248588;
+            --footer-subtitulo: var(--terracota);
+            --footer-links: #9ca3af;
+            --footer-links-hover: var(--terracota);
+            --footer-texto: #d1d5db;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            background-image: url('{% static "imagens/new_background.png" %}');
+            background-image: url('{% static "imagens/new_background.jpg" %}');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -182,22 +191,6 @@
         section {
             backdrop-blur: 5px;
         }
-
-        footer {
-            background-color: rgba(15, 23, 42, 0.95) !important;
-            color: #ffffff !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-        }
-
-        footer h3,
-        footer p,
-        footer a {
-            color: #ffffff !important;
-        }
-
-        footer a:hover {
-            color: var(--terracota) !important;
-        }
     </style>
 </head>
 
@@ -266,23 +259,25 @@
     {% endblock %}
 
     <!-- Rodapé -->
-    <footer class="bg-white pt-12 pb-8 border-t border-gray-100 text-center">
+    <footer class="pt-12 pb-8 border-t text-center"
+        style="background-color: var(--footer-fundo); border-color: var(--footer-borda);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center">
                 <div class="logo-circle mb-6 scale-110">
                     <img src="{% static 'logo_elleva.jpg' %}" alt="Logo Elleva" class="w-full h-full object-cover">
                 </div>
-                <h3 class="text-2xl font-bold tracking-tight mb-2">ELLEVA</h3>
-                <p class="text-terracota text-xs uppercase tracking-[0.3em] font-medium mb-10">Odontologia Especializada
+                <h3 class="text-2xl font-bold tracking-tight mb-2" style="color: var(--footer-titulo);">ELLEVA</h3>
+                <p class="text-xs uppercase tracking-[0.3em] font-medium mb-10" style="color: var(--footer-subtitulo);">
+                    Odontologia Especializada
                 </p>
 
-                <div class="flex space-x-10 mb-12 text-sm font-semibold text-gray-400">
-                    <a href="#" class="hover:text-terracota transition-colors">Instagram</a>
-                    <a href="#" class="hover:text-terracota transition-colors">Facebook</a>
-                    <a href="#" class="hover:text-terracota transition-colors">Localização</a>
+                <div class="flex space-x-10 mb-12 text-sm font-semibold" style="color: var(--footer-links);">
+                    <a href="#" class="transition-colors hover:text-[var(--footer-links-hover)]">Instagram</a>
+                    <a href="#" class="transition-colors hover:text-[var(--footer-links-hover)]">Facebook</a>
+                    <a href="#" class="transition-colors hover:text-[var(--footer-links-hover)]">Localização</a>
                 </div>
 
-                <div class="text-gray-300 text-[10px] uppercase tracking-widest space-y-2">
+                <div class="text-[10px] uppercase tracking-widest space-y-2" style="color: var(--footer-texto);">
                     <p>&copy; 2024 Elleva Odontologia. Todos os direitos reservados.</p>
                     <p>RT: Dra. Maria Isabela Lopes Gandolfo - CRO-SP 00000</p>
                 </div>

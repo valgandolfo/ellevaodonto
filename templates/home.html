@@ -11,92 +11,181 @@
         object-fit: cover;
     }
 </style>
-    <!-- Hero -->
-    <section id="home" class="pt-40 pb-6 lg:pt-48 lg:pb-10 bg-transparent">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-[var(--referencia-fundo-container)] border border-[var(--referencia-borda-container)] p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-xl">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="text-center lg:text-left">
-                        <span class="inline-block px-4 py-1 rounded-full bg-[var(--referencia-tag-fundo)] text-[var(--referencia-tag-texto)] text-xs font-bold tracking-widest uppercase mb-4 mx-auto lg:mx-0">Referência em Especialidades</span>
-                        <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-[var(--referencia-titulo)] leading-tight mb-6">
-                            Eleve o seu padrão de <span class="text-[var(--referencia-destaque)] italic font-normal">saúde bucal.</span>
-                        </h1>
-                        <p class="text-lg text-[var(--referencia-texto)] mb-8 max-w-lg leading-relaxed mx-auto lg:mx-0">
-                            Na <strong>Elleva</strong>, unimos a ciência da odontologia especializada ao conforto que você merece. Tecnologia de ponta em um ambiente acolhedor.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <a href="#contato" class="bg-[var(--referencia-btn1-fundo)] text-[var(--referencia-btn1-texto)] px-8 py-4 rounded-full text-center font-semibold shadow-xl hover:bg-opacity-90 transition-all">Iniciar Transformação</a>
-                            <a href="#servicos" class="bg-[var(--referencia-btn2-fundo)] border-2 border-[var(--referencia-btn2-borda)] text-[var(--referencia-btn2-texto)] px-8 py-4 rounded-full text-center font-semibold hover:bg-[var(--referencia-btn2-borda)] hover:text-[var(--referencia-btn2-fundo)] transition-all">Nossas Especialidades</a>
-                        </div>
+<!-- Hero -->
+<section id="home" class="pt-40 pb-6 lg:pt-48 lg:pb-10 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+            class="bg-[var(--referencia-fundo-container)] border border-[var(--referencia-borda-container)] p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <span
+                        class="inline-block px-4 py-1 rounded-full bg-[var(--referencia-tag-fundo)] text-[var(--referencia-tag-texto)] text-xs font-bold tracking-widest uppercase mb-4 mx-auto lg:mx-0">Referência
+                        em Especialidades</span>
+                    <h1
+                        class="text-4xl md:text-5xl lg:text-7xl font-bold text-[var(--referencia-titulo)] leading-tight mb-6">
+                        Eleve o seu padrão de <span class="text-[var(--referencia-destaque)] italic font-normal">saúde
+                            bucal.</span>
+                    </h1>
+                    <p class="text-lg text-[var(--referencia-texto)] mb-8 max-w-lg leading-relaxed mx-auto lg:mx-0">
+                        Na <strong>Elleva</strong>, unimos a ciência da odontologia especializada ao conforto que você
+                        merece. Tecnologia de ponta em um ambiente acolhedor.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contato"
+                            class="bg-[var(--referencia-btn1-fundo)] text-[var(--referencia-btn1-texto)] px-8 py-4 rounded-full text-center font-semibold shadow-xl hover:bg-opacity-90 transition-all">Iniciar
+                            Transformação</a>
+                        <a href="#servicos"
+                            class="bg-[var(--referencia-btn2-fundo)] border-2 border-[var(--referencia-btn2-borda)] text-[var(--referencia-btn2-texto)] px-8 py-4 rounded-full text-center font-semibold hover:bg-[var(--referencia-btn2-borda)] hover:text-[var(--referencia-btn2-fundo)] transition-all">Nossas
+                            Especialidades</a>
                     </div>
-                    <div class="relative mt-12 lg:mt-0 w-full max-w-sm mx-auto sm:max-w-md lg:max-w-none">
-                        <div class="absolute -top-5 -right-5 lg:-top-10 lg:-right-10 w-48 h-48 lg:w-64 lg:h-64 bg-[var(--referencia-bolha)] rounded-full blur-2xl lg:blur-3xl"></div>
-                        <img src="{% static 'imagens/fotoinicial.jpg' %}" alt="Consultório Moderno" class="rounded-[2rem] shadow-2xl relative z-10">
+                </div>
+                <div class="relative mt-12 lg:mt-0 w-full max-w-sm mx-auto sm:max-w-md lg:max-w-none">
+                    <div
+                        class="absolute -top-5 -right-5 lg:-top-10 lg:-right-10 w-48 h-48 lg:w-64 lg:h-64 bg-[var(--referencia-bolha)] rounded-full blur-2xl lg:blur-3xl">
                     </div>
+                    <img src="{% static 'imagens/fotoinicial.jpg' %}" alt="Consultório Moderno"
+                        class="rounded-[2rem] shadow-2xl relative z-10">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Especialidades -->
-    <section id="servicos" class="py-12 lg:py-20 bg-[var(--tratamentos-fundo-secao)]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="bg-[var(--tratamentos-fundo-container)] border border-[var(--tratamentos-borda-container)] p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-xl">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[var(--tratamentos-titulo-secao)]">Tratamentos Especializados</h2>
-                <div class="w-20 h-1 mx-auto mb-8 bg-[var(--tratamentos-linha-horizontal)]"></div>
-                
-                <div class="grid md:grid-cols-3 gap-8">
+<!-- Especialidades -->
+<section id="servicos" class="py-12 lg:py-20 bg-[var(--tratamentos-fundo-secao)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div
+            class="bg-[var(--tratamentos-fundo-container)] border border-[var(--tratamentos-borda-container)] p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[var(--tratamentos-titulo-secao)]">PRINCIPAIS
+                ESPECIALIDADES</h2>
+            <div class="w-20 h-1 mx-auto mb-8 bg-[var(--tratamentos-linha-horizontal)]"></div>
+
+            <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card -->
-                <div class="p-10 rounded-[2.5rem] border shadow-sm hover:shadow-xl transition-all group bg-[var(--tratamentos-fundo-card)] border-[var(--tratamentos-borda-card)]">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors mx-auto bg-[var(--tratamentos-icone-fundo)] group-hover:bg-[var(--tratamentos-icone-fundo-hover)]">
-                        <svg class="w-7 h-7 text-[var(--tratamentos-icone-cor)] group-hover:text-[var(--tratamentos-icone-cor-hover)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <div
+                    class="p-10 rounded-[2.5rem] border shadow-sm hover:shadow-xl transition-all group bg-[var(--tratamentos-fundo-card)] border-[var(--tratamentos-borda-card)]">
+                    <div
+                        class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors mx-auto bg-[var(--tratamentos-icone-fundo)] group-hover:bg-[var(--tratamentos-icone-fundo-hover)]">
+                        <svg class="w-7 h-7 text-[var(--tratamentos-icone-cor)] group-hover:text-[var(--tratamentos-icone-cor-hover)]"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-[var(--tratamentos-titulo-card)]">Estética Avançada</h3>
-                    <p class="text-sm leading-relaxed text-[var(--tratamentos-texto-card)]">Facetas, lentes de contato e clareamento para um sorriso harmonioso e natural.</p>
+                    <h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-[var(--tratamentos-titulo-card)]">
+                        IMPLANTE DENTÁRIO</h3>
+                    <p class="text-sm leading-relaxed text-[var(--tratamentos-texto-card)]">O implante dentário é uma
+                        solução moderna para substituir dentes perdidos de forma segura e duradoura. Ele funciona como
+                        uma raiz artificial, fixada no osso, que sustenta um dente novo com aparência natural. Mais do
+                        que estética, o implante devolve a eficiência na mastigação, melhora a qualidade de vida e
+                        resgata a confiança para sorrir, falar e viver sem preocupações.</p>
                 </div>
 
                 <!-- Card -->
-                <div class="p-10 rounded-[2.5rem] border shadow-sm hover:shadow-xl transition-all group border-b-4 bg-[var(--tratamentos-fundo-card)] border-[var(--tratamentos-borda-card)] border-b-[var(--tratamentos-borda-destaque)]">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors mx-auto bg-[var(--tratamentos-icone-fundo)] group-hover:bg-[var(--tratamentos-icone-fundo-hover)]">
-                        <svg class="w-7 h-7 text-[var(--tratamentos-icone-cor)] group-hover:text-[var(--tratamentos-icone-cor-hover)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path></svg>
+                <div
+                    class="p-10 rounded-[2.5rem] border shadow-sm hover:shadow-xl transition-all group border-b-4 bg-[var(--tratamentos-fundo-card)] border-[var(--tratamentos-borda-card)] border-b-[var(--tratamentos-borda-destaque)]">
+                    <div
+                        class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors mx-auto bg-[var(--tratamentos-icone-fundo)] group-hover:bg-[var(--tratamentos-icone-fundo-hover)]">
+                        <svg class="w-7 h-7 text-[var(--tratamentos-icone-cor)] group-hover:text-[var(--tratamentos-icone-cor-hover)]"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z">
+                            </path>
+                        </svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-[var(--tratamentos-titulo-card)]">Reabilitação</h3>
-                    <p class="text-sm leading-relaxed text-[var(--tratamentos-texto-card)]">Implantes e próteses com alta tecnologia digital para devolver sua função mastigatória.</p>
+                    <h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-[var(--tratamentos-titulo-card)]">
+                        PRÓTESE DENTÁRIA</h3>
+                    <p class="text-sm leading-relaxed text-[var(--tratamentos-texto-card)]">A prótese dentária é a
+                        solução ideal para quem deseja recuperar o sorriso com naturalidade e segurança. Com diferentes
+                        tipos — como próteses fixas, removíveis e sobre implantes — e uma variedade de materiais
+                        modernos, como resina e porcelana, o tratamento é totalmente personalizado para atender às suas
+                        necessidades. Mais do que estética, ela devolve a função mastigatória, melhora a fala e resgata
+                        a confiança para sorrir sem medo, trazendo mais conforto e qualidade de vida todos os dias.</p>
                 </div>
 
                 <!-- Card -->
-                <div class="p-10 rounded-[2.5rem] border shadow-sm hover:shadow-xl transition-all group bg-[var(--tratamentos-fundo-card)] border-[var(--tratamentos-borda-card)]">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors mx-auto bg-[var(--tratamentos-icone-fundo)] group-hover:bg-[var(--tratamentos-icone-fundo-hover)]">
-                        <svg class="w-7 h-7 text-[var(--tratamentos-icone-cor)] group-hover:text-[var(--tratamentos-icone-cor-hover)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <div
+                    class="p-10 rounded-[2.5rem] border shadow-sm hover:shadow-xl transition-all group bg-[var(--tratamentos-fundo-card)] border-[var(--tratamentos-borda-card)]">
+                    <div
+                        class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors mx-auto bg-[var(--tratamentos-icone-fundo)] group-hover:bg-[var(--tratamentos-icone-fundo-hover)]">
+                        <svg class="w-7 h-7 text-[var(--tratamentos-icone-cor)] group-hover:text-[var(--tratamentos-icone-cor-hover)]"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
                     </div>
-                    <h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-[var(--tratamentos-titulo-card)]">Invisalign®</h3>
-                    <p class="text-sm leading-relaxed text-[var(--tratamentos-texto-card)]">Alinhamento ortodôntico transparente e removível com o sistema mais avançado do mundo.</p>
+                    <h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-[var(--tratamentos-titulo-card)]">
+                        ESTÉTICA DENTAL</h3>
+                    <p class="text-sm leading-relaxed text-[var(--tratamentos-texto-card)]">A estética dental vai muito
+                        além de um sorriso bonito — é sobre realçar sua beleza natural com harmonia e confiança. Com
+                        tratamentos modernos e personalizados, como clareamento, lentes e facetas, é possível corrigir
+                        imperfeições, alinhar detalhes e conquistar um sorriso mais equilibrado e atraente. O objetivo é
+                        valorizar sua aparência e elevar sua autoestima, para que você sorria com segurança em todos os
+                        momentos.</p>
                 </div>
-            </div>
+
+                <!-- Card: Outros Procedimentos -->
+                <div
+                    class="p-10 rounded-[2.5rem] border shadow-sm hover:shadow-xl transition-all group bg-[var(--tratamentos-fundo-card)] border-[var(--tratamentos-borda-card)]">
+                    <div
+                        class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors mx-auto bg-[var(--tratamentos-icone-fundo)] group-hover:bg-[var(--tratamentos-icone-fundo-hover)]">
+                        <!-- Icone genérico (ajustes / procedimentos) -->
+                        <svg class="w-7 h-7 text-[var(--tratamentos-icone-cor)] group-hover:text-[var(--tratamentos-icone-cor-hover)]"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-[var(--tratamentos-titulo-card)]">
+                        Outros Procedimentos</h3>
+                    <ul
+                        class="text-sm leading-relaxed text-[var(--tratamentos-texto-card)] space-y-3 text-left list-disc pl-4 marker:text-[var(--tratamentos-icone-cor)]">
+                        <li><strong>Clínico geral</strong> (cuidados básicos em saúde bucal): limpeza, restaurações e
+                            prevenção.</li>
+                        <li><strong>Odontopediatria:</strong> prevenção e tratamento do sorriso dos nossos pequenos:
+                            profilaxia, aplicação tópica de flúor, selantes, restaurações, tratamento de canal, etc.
+                        </li>
+                        <li><strong>Cirurgia oral menor:</strong> extração dentária simples, extração de terceiros
+                            molares, biopsias, etc.</li>
+                        <li><strong>Tratamento de canal.</strong></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Sobre -->
-    <!-- Sobre -->
-    <section id="sobre" class="py-12 lg:py-20 bg-[var(--sobre-fundo-secao)] text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-[var(--sobre-fundo-container)] border border-[var(--sobre-borda-container)] p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-xl">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--terracota)] uppercase tracking-widest">A Clínica</h2>
-                    <div class="w-20 h-1 mx-auto mt-4 bg-[var(--terracota)] opacity-50"></div>
-                </div>
-                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                <div class="w-full relative shadow-2xl rounded-2xl overflow-hidden mt-8 lg:mt-0 border-4 border-[var(--sobre-borda-fotos)]">
+<!-- Sobre -->
+<!-- Sobre -->
+<section id="sobre" class="py-12 lg:py-20 bg-[var(--sobre-fundo-secao)] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+            class="bg-[var(--sobre-fundo-container)] border border-[var(--sobre-borda-container)] p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-[var(--terracota)] uppercase tracking-widest">A Clínica
+                </h2>
+                <div class="w-20 h-1 mx-auto mt-4 bg-[var(--terracota)] opacity-50"></div>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div
+                    class="w-full relative shadow-2xl rounded-2xl overflow-hidden mt-8 lg:mt-0 border-4 border-[var(--sobre-borda-fotos)]">
                     <!-- Swiper -->
                     <div class="swiper mySwiper h-64 sm:h-80 w-full bg-black/20">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_1.png' %}" alt="A Clínica 1"></div>
-                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_2.png' %}" alt="A Clínica 2"></div>
-                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_3.png' %}" alt="A Clínica 3"></div>
-                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_4.jpeg' %}" alt="A Clínica 4"></div>
-                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_5.png' %}" alt="A Clínica 5"></div>
-                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_6.png' %}" alt="A Clínica 6"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_1.png' %}"
+                                    alt="A Clínica 1"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_2.png' %}"
+                                    alt="A Clínica 2"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_3.png' %}"
+                                    alt="A Clínica 3"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_4.jpeg' %}"
+                                    alt="A Clínica 4"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_5.png' %}"
+                                    alt="A Clínica 5"></div>
+                            <div class="swiper-slide"><img src="{% static 'imagens/a_clinica_6.png' %}"
+                                    alt="A Clínica 6"></div>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -104,10 +193,12 @@
                 <div class="mt-8 lg:mt-0">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 italic">Sua melhor versão começa na Elleva.</h2>
                     <p class="text-lg opacity-90 mb-6 leading-relaxed">
-                        A **Elleva Odontologia Especializada** foi concebida para redefinir o conceito de ir ao dentista. Aqui, acreditamos que o cuidado bucal é uma jornada de bem-estar integral.
+                        A **Elleva Odontologia Especializada** foi concebida para redefinir o conceito de ir ao
+                        dentista. Aqui, acreditamos que o cuidado bucal é uma jornada de bem-estar integral.
                     </p>
                     <p class="text-lg opacity-90 mb-8 leading-relaxed font-light">
-                        Nossa equipe é formada por especialistas que buscam o equilíbrio perfeito entre a saúde biológica e a estética facial, garantindo sorrisos que refletem a sua verdadeira essência.
+                        Nossa equipe é formada por especialistas que buscam o equilíbrio perfeito entre a saúde
+                        biológica e a estética facial, garantindo sorrisos que refletem a sua verdadeira essência.
                     </p>
                     <div class="flex items-center space-x-8">
                         <div>
@@ -123,187 +214,225 @@
                 </div>
             </div>
         </div>
-    </section>
+</section>
 
-    <!-- Equipe Especializada -->
-    <section id="equipe" class="py-12 lg:py-20 bg-[var(--equipe-fundo-secao)]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-[var(--equipe-fundo-container)] border border-[var(--equipe-borda-container)] p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-xl">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--equipe-titulo)] uppercase tracking-widest">Equipe Especializada</h2>
-                    <div class="w-20 h-1 mx-auto mt-4 bg-[var(--equipe-titulo)] opacity-50"></div>
-                </div>
+<!-- Equipe Especializada -->
+<section id="equipe" class="py-12 lg:py-20 bg-[var(--equipe-fundo-secao)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+            class="bg-[var(--equipe-fundo-container)] border border-[var(--equipe-borda-container)] p-6 sm:p-10 lg:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-[var(--equipe-titulo)] uppercase tracking-widest">Equipe
+                    Especializada</h2>
+                <div class="w-20 h-1 mx-auto mt-4 bg-[var(--equipe-titulo)] opacity-50"></div>
+            </div>
 
-                <!-- Swiper Equipe -->
-                <div class="swiper teamSwiper pb-12">
-                    <div class="swiper-wrapper">
-                        <!-- 1: Dra Tamires -->
-                        <div class="swiper-slide px-4">
-                            <div class="text-center group">
-                                <div class="relative w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[var(--equipe-borda-foto)] shadow-lg transition-transform group-hover:scale-105">
-                                    <img src="{% static 'imagens/dra_tamires.jpg' %}?v=2" alt="Dra. Tamires Passadori" class="w-full h-full object-cover object-top rounded-full">
-                                </div>
-                                <h3 class="text-xl font-bold text-[var(--equipe-nome-medico)] mb-1">Dra. Tamires Passadori</h3>
-                                <p class="text-[var(--equipe-especialidade)] font-light uppercase tracking-widest text-[10px] leading-tight px-4">Odontopediatra e paciente com necessidades especiais</p>
+            <!-- Swiper Equipe -->
+            <div class="swiper teamSwiper pb-12">
+                <div class="swiper-wrapper">
+                    <!-- 1: Dra Tamires -->
+                    <div class="swiper-slide px-4">
+                        <div class="text-center group">
+                            <div
+                                class="relative w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[var(--equipe-borda-foto)] shadow-lg transition-transform group-hover:scale-105">
+                                <img src="{% static 'imagens/dra_tamires.jpg' %}?v=2" alt="Dra. Tamires Passadori"
+                                    class="w-full h-full object-cover object-top rounded-full">
                             </div>
-                        </div>
-                        <!-- 2: Dra Marcella -->
-                        <div class="swiper-slide px-4">
-                            <div class="text-center group">
-                                <div class="relative w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[var(--equipe-borda-foto)] shadow-lg transition-transform group-hover:scale-105">
-                                    <img src="{% static 'imagens/dra_marcella.jpg' %}?v=2" alt="Dra. Marcella Januzzi" class="w-full h-full object-cover object-top rounded-full">
-                                </div>
-                                <h3 class="text-xl font-bold text-[var(--equipe-nome-medico)] mb-1">Dra. Marcella Januzzi</h3>
-                                <p class="text-[var(--equipe-especialidade)] font-light uppercase tracking-widest text-[10px] leading-tight px-4">Reabilitação oral e dor orofacial</p>
-                            </div>
-                        </div>
-                        <!-- 3: Dr. Thales Oliveira -->
-                        <div class="swiper-slide px-4">
-                            <div class="text-center group">
-                                <div class="relative w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[var(--equipe-borda-foto)] shadow-lg transition-transform group-hover:scale-105">
-                                    <img src="{% static 'imagens/dr_thales.jpg' %}?v=2" alt="Dr. Thales Oliveira" class="w-full h-full object-cover object-top rounded-full">
-                                </div>
-                                <h3 class="text-xl font-bold text-[var(--equipe-nome-medico)] mb-1">Dr. Thales Oliveira</h3>
-                                <p class="text-[var(--equipe-especialidade)] font-light uppercase tracking-widest text-[10px] leading-tight px-4">Endodontista - Tratamento de Canal</p>
-                            </div>
-                        </div>
-                        <!-- 4: Dra Maria Isabela Gandolfo -->
-                        <div class="swiper-slide px-4">
-                            <div class="text-center group">
-                                <div class="relative w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[var(--equipe-borda-foto)] shadow-lg transition-transform group-hover:scale-105">
-                                    <img src="{% static 'imagens/dra_isabela.jpg' %}?v=2" alt="Dra. Maria Isabela Gandolfo" class="w-full h-full object-cover object-top rounded-full">
-                                </div>
-                                <h3 class="text-xl font-bold text-[var(--equipe-nome-medico)] mb-1">Dra. Maria Isabela Gandolfo</h3>
-                                <p class="text-[var(--equipe-especialidade)] font-light uppercase tracking-widest text-[10px] leading-tight px-4">Cirurgiã Dentista</p>
-                            </div>
+                            <h3 class="text-xl font-bold text-[var(--equipe-nome-medico)] mb-1">Dra. Tamires Passadori
+                            </h3>
+                            <p
+                                class="text-[var(--equipe-especialidade)] font-light uppercase tracking-widest text-[10px] leading-tight px-4">
+                                Odontopediatra e paciente com necessidades especiais</p>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
+                    <!-- 2: Dra Marcella -->
+                    <div class="swiper-slide px-4">
+                        <div class="text-center group">
+                            <div
+                                class="relative w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[var(--equipe-borda-foto)] shadow-lg transition-transform group-hover:scale-105">
+                                <img src="{% static 'imagens/dra_marcella.jpg' %}?v=2" alt="Dra. Marcella Januzzi"
+                                    class="w-full h-full object-cover object-top rounded-full">
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--equipe-nome-medico)] mb-1">Dra. Marcella Januzzi
+                            </h3>
+                            <p
+                                class="text-[var(--equipe-especialidade)] font-light uppercase tracking-widest text-[10px] leading-tight px-4">
+                                Reabilitação oral e dor orofacial</p>
+                        </div>
+                    </div>
+                    <!-- 3: Dr. Thales Oliveira -->
+                    <div class="swiper-slide px-4">
+                        <div class="text-center group">
+                            <div
+                                class="relative w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[var(--equipe-borda-foto)] shadow-lg transition-transform group-hover:scale-105">
+                                <img src="{% static 'imagens/dr_thales.jpg' %}?v=2" alt="Dr. Thales Oliveira"
+                                    class="w-full h-full object-cover object-top rounded-full">
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--equipe-nome-medico)] mb-1">Dr. Thales Oliveira</h3>
+                            <p
+                                class="text-[var(--equipe-especialidade)] font-light uppercase tracking-widest text-[10px] leading-tight px-4">
+                                Endodontista - Tratamento de Canal</p>
+                        </div>
+                    </div>
+                    <!-- 4: Dra Maria Isabela Gandolfo -->
+                    <div class="swiper-slide px-4">
+                        <div class="text-center group">
+                            <div
+                                class="relative w-64 h-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[var(--equipe-borda-foto)] shadow-lg transition-transform group-hover:scale-105">
+                                <img src="{% static 'imagens/dra_isabela.jpg' %}?v=2" alt="Dra. Maria Isabela Gandolfo"
+                                    class="w-full h-full object-cover object-top rounded-full">
+                            </div>
+                            <h3 class="text-xl font-bold text-[var(--equipe-nome-medico)] mb-1">Dra. Maria Isabela
+                                Gandolfo</h3>
+                            <p
+                                class="text-[var(--equipe-especialidade)] font-light uppercase tracking-widest text-[10px] leading-tight px-4">
+                                Implantodontista - Clinico Geral </p>
+                            <p
+                                class="text-[var(--equipe-especialidade)] font-light uppercase tracking-widest text-[10px] leading-tight px-4">
+                                Protesista </p>
+                        </div>
+                    </div>
                 </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contato -->
-    <section id="contato" class="py-12 lg:py-20 bg-[var(--contato-fundo-secao)]">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10 sm:mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[var(--contato-titulo)]">Agende seu horário</h2>
-                <p class="font-light text-[var(--contato-subtitulo)] px-4">Receba um atendimento personalizado desde o primeiro contato.</p>
-            </div>
-            
-            {% if messages %}
-                <!-- Modal Overlay -->
-                <div id="successModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity">
-                    <!-- Modal Content -->
-                    <div class="bg-white rounded-[2rem] p-8 max-w-sm w-full mx-4 shadow-2xl transform transition-all text-center border-t-8 border-[var(--agende-botao-fundo)]">
-                        <!-- Ícone de Sucesso -->
-                        <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-50 mb-6">
-                            <svg class="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        
-                        <h3 class="text-2xl font-black text-gray-800 mb-2">Sucesso!</h3>
-                        
-                        {% for message in messages %}
-                        <p class="text-gray-600 text-base leading-relaxed mb-8">
-                            {{ message }}
-                        </p>
-                        {% endfor %}
-                        
-                        <button type="button" onclick="document.getElementById('successModal').style.display='none'" class="w-full bg-[var(--agende-botao-fundo)] text-white font-bold rounded-xl px-4 py-4 uppercase tracking-[0.2em] hover:bg-opacity-90 transition-all shadow-lg text-sm">
-                            Ok, entendi
-                        </button>
-                    </div>
-                </div>
-            {% endif %}
-
-            <form action="{% url 'agendar_consulta' %}" method="POST" class="grid md:grid-cols-2 gap-8 p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-inner bg-[var(--contato-fundo-container)] border border-[var(--contato-borda-container)]">
-                {% csrf_token %}
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-[var(--contato-labels)]">Nome</label>
-                        <input type="text" name="nome" required class="w-full px-5 py-4 rounded-2xl border transition-all focus:ring-0 bg-[var(--contato-inputs)] border-[var(--contato-inputs-borda)] focus:border-[var(--contato-inputs-focus)]">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-[var(--contato-labels)]">WhatsApp</label>
-                        <input type="tel" name="telefone" required placeholder="(00) 00000-0000" class="w-full px-5 py-4 rounded-2xl border transition-all focus:ring-0 bg-[var(--contato-inputs)] border-[var(--contato-inputs-borda)] focus:border-[var(--contato-inputs-focus)]">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-[var(--contato-labels)]">Interesse</label>
-                        <select name="interesse" required class="w-full px-5 py-4 rounded-2xl border transition-all focus:ring-0 bg-[var(--contato-inputs)] border-[var(--contato-inputs-borda)] focus:border-[var(--contato-inputs-focus)]">
-                            <option>Estética</option>
-                            <option>Implantes</option>
-                            <option>Invisalign</option>
-                            <option>Outros</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest mb-2 text-[var(--contato-labels)]">Mensagem</label>
-                        <textarea name="mensagem" required rows="4" class="w-full px-5 py-4 rounded-2xl border transition-all focus:ring-0 bg-[var(--contato-inputs)] border-[var(--contato-inputs-borda)] focus:border-[var(--contato-inputs-focus)]"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-5 rounded-2xl font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-opacity-90 transition-all mt-6 bg-[var(--contato-botao-fundo)] text-[var(--contato-botao-texto)]">
-                        Solicitar Agendamento
-                    </button>
-                </div>
-            </form>
+<!-- Contato -->
+<section id="contato" class="py-12 lg:py-20 bg-[var(--contato-fundo-secao)]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 sm:mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[var(--contato-titulo)]">Agende seu horário</h2>
+            <p class="font-light text-[var(--contato-subtitulo)] px-4">Receba um atendimento personalizado desde o
+                primeiro contato.</p>
         </div>
-    </section>
 
-    <!-- Máscara de Telefone -->
-    <script>
-        const telefoneInput = document.querySelector('input[name="telefone"]');
-        if (telefoneInput) {
-            telefoneInput.addEventListener('input', function (e) {
-                var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
-                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        {% if messages %}
+        <!-- Modal Overlay -->
+        <div id="successModal"
+            class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity">
+            <!-- Modal Content -->
+            <div
+                class="bg-white rounded-[2rem] p-8 max-w-sm w-full mx-4 shadow-2xl transform transition-all text-center border-t-8 border-[var(--agende-botao-fundo)]">
+                <!-- Ícone de Sucesso -->
+                <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-50 mb-6">
+                    <svg class="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+
+                <h3 class="text-2xl font-black text-gray-800 mb-2">Sucesso!</h3>
+
+                {% for message in messages %}
+                <p class="text-gray-600 text-base leading-relaxed mb-8">
+                    {{ message }}
+                </p>
+                {% endfor %}
+
+                <button type="button" onclick="document.getElementById('successModal').style.display='none'"
+                    class="w-full bg-[var(--agende-botao-fundo)] text-white font-bold rounded-xl px-4 py-4 uppercase tracking-[0.2em] hover:bg-opacity-90 transition-all shadow-lg text-sm">
+                    Ok, entendi
+                </button>
+            </div>
+        </div>
+        {% endif %}
+
+        <form action="{% url 'agendar_consulta' %}" method="POST"
+            class="grid md:grid-cols-2 gap-8 p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-inner bg-[var(--contato-fundo-container)] border border-[var(--contato-borda-container)]">
+            {% csrf_token %}
+            <div class="space-y-6">
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-widest mb-2 text-[var(--contato-labels)]">Nome</label>
+                    <input type="text" name="nome" required
+                        class="w-full px-5 py-4 rounded-2xl border transition-all focus:ring-0 bg-[var(--contato-inputs)] border-[var(--contato-inputs-borda)] focus:border-[var(--contato-inputs-focus)]">
+                </div>
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-widest mb-2 text-[var(--contato-labels)]">WhatsApp</label>
+                    <input type="tel" name="telefone" required placeholder="(00) 00000-0000"
+                        class="w-full px-5 py-4 rounded-2xl border transition-all focus:ring-0 bg-[var(--contato-inputs)] border-[var(--contato-inputs-borda)] focus:border-[var(--contato-inputs-focus)]">
+                </div>
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-widest mb-2 text-[var(--contato-labels)]">Interesse</label>
+                    <select name="interesse" required
+                        class="w-full px-5 py-4 rounded-2xl border transition-all focus:ring-0 bg-[var(--contato-inputs)] border-[var(--contato-inputs-borda)] focus:border-[var(--contato-inputs-focus)]">
+                        <option>Estética</option>
+                        <option>Implantes</option>
+                        <option>Invisalign</option>
+                        <option>Outros</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex flex-col justify-between">
+                <div>
+                    <label
+                        class="block text-xs font-bold uppercase tracking-widest mb-2 text-[var(--contato-labels)]">Mensagem</label>
+                    <textarea name="mensagem" required rows="4"
+                        class="w-full px-5 py-4 rounded-2xl border transition-all focus:ring-0 bg-[var(--contato-inputs)] border-[var(--contato-inputs-borda)] focus:border-[var(--contato-inputs-focus)]"></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full py-5 rounded-2xl font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-opacity-90 transition-all mt-6 bg-[var(--contato-botao-fundo)] text-[var(--contato-botao-texto)]">
+                    Solicitar Agendamento
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Máscara de Telefone -->
+<script>
+    const telefoneInput = document.querySelector('input[name="telefone"]');
+    if (telefoneInput) {
+        telefoneInput.addEventListener('input', function (e) {
+            var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+    }
+</script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (document.querySelector('.mySwiper')) {
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 0,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                loop: true,
+                effect: "fade",
             });
         }
-    </script>
-    
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (document.querySelector('.mySwiper')) {
-                var swiper = new Swiper(".mySwiper", {
-                    spaceBetween: 0,
-                    centeredSlides: true,
-                    autoplay: {
-                        delay: 3000,
-                        disableOnInteraction: false,
-                    },
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    loop: true,
-                    effect: "fade",
-                });
-            }
 
-            if (document.querySelector('.teamSwiper')) {
-                var teamSwiper = new Swiper(".teamSwiper", {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                    autoplay: {
-                        delay: 4000,
-                        disableOnInteraction: false,
-                    },
-                    breakpoints: {
-                        640: { slidesPerView: 2, spaceBetween: 30 },
-                        1024: { slidesPerView: 3, spaceBetween: 40 },
-                    },
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    loop: true,
-                });
-            }
-        });
-    </script>
+        if (document.querySelector('.teamSwiper')) {
+            var teamSwiper = new Swiper(".teamSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2, spaceBetween: 30 },
+                    1024: { slidesPerView: 3, spaceBetween: 40 },
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                loop: true,
+            });
+        }
+    });
+</script>
 {% endblock %}
