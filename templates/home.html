@@ -35,7 +35,7 @@
                     <div
                         class="absolute -top-5 -right-5 lg:-top-10 lg:-right-10 w-48 h-48 lg:w-64 lg:h-64 bg-[var(--referencia-bolha)] rounded-full blur-2xl lg:blur-3xl">
                     </div>
-                    <img src="{% static 'imagens/fotoinicial.jpg' %}" alt="Consultório Moderno"
+                    <img src="{% static 'imagens/imagem_inicial.png' %}" alt="Consultório Moderno"
                         class="rounded-[2rem] shadow-2xl relative z-10">
                 </div>
             </div>
@@ -365,10 +365,17 @@
                     <textarea name="mensagem" required rows="4"
                         class="w-full px-5 py-4 rounded-2xl border transition-all focus:ring-0 bg-[var(--contato-inputs)] border-[var(--contato-inputs-borda)] focus:border-[var(--contato-inputs-focus)]"></textarea>
                 </div>
-                <button type="submit"
-                    class="w-full py-5 rounded-2xl font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-opacity-90 transition-all mt-6 bg-[var(--contato-botao-fundo)] text-[var(--contato-botao-texto)]">
-                    Solicitar Agendamento
-                </button>
+                <div class="flex flex-col gap-4 mt-6">
+                    <button type="submit" name="metodo_contato" value="email"
+                        class="w-full py-4 rounded-2xl font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-opacity-90 transition-all bg-[var(--contato-botao-fundo)] text-[var(--contato-botao-texto)]">
+                        Solicitar por E-mail
+                    </button>
+                    <button type="submit" name="metodo_contato" value="whatsapp"
+                        class="w-full py-4 rounded-2xl font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-opacity-90 transition-all bg-green-500 text-white flex justify-center items-center gap-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.124.551 4.198 1.597 6.03l-1.572 5.742 5.875-1.542a12.022 12.022 0 006.131 1.687h.005c6.648 0 12.03-5.383 12.03-12.03S18.68 0 12.031 0zm0 22.018a10.02 10.02 0 01-5.115-1.396l-.367-.218-3.805.998.986-3.712-.239-.38a10.038 10.038 0 01-1.492-5.28c0-5.541 4.51-10.051 10.051-10.051s10.051 4.51 10.051 10.051-4.51 10.051-10.051 10.051zm5.512-7.535c-.302-.151-1.791-.884-2.068-.985-.276-.101-.478-.151-.679.151-.201.302-.78 1-.956 1.201-.176.201-.352.226-.654.075-.302-.151-1.279-.472-2.436-1.506-.902-.806-1.509-1.801-1.685-2.103-.176-.302-.019-.465.132-.616.136-.136.302-.352.453-.528.151-.176.201-.302.302-.503.101-.201.05-.377-.025-.528-.075-.151-.679-1.636-.93-2.24-.244-.588-.493-.509-.679-.518-.176-.008-.377-.01-.578-.01-.201 0-.528.075-.805.377-.276.302-1.056 1.031-1.056 2.515s1.081 2.917 1.232 3.118c.151.201 2.128 3.249 5.155 4.555.72.311 1.282.497 1.721.636.723.23 1.382.197 1.901.119.584-.087 1.791-.732 2.043-1.439.251-.707.251-1.314.176-1.439-.075-.126-.276-.201-.578-.352z"/></svg>
+                        Solicitar por WhatsApp
+                    </button>
+                </div>
             </div>
         </form>
     </div>
