@@ -40,16 +40,21 @@ def agendar_consulta(request):
         elif metodo_contato == 'email':
             assunto = f"Novo Agendamento: {nome} - {interesse}"
             corpo_email = f"Nome: {nome}\nTelefone: {telefone_formatado}\nInteresse: {interesse}\nMensagem: {mensagem}"
-            try:
-                send_mail(
-                    assunto,
-                    corpo_email,
-                    'contato@ellevaodontologia.com.br',
-                    ['contato@ellevaodontologia.com.br'],
-                    fail_silently=True,
-                )
-            except Exception:
-                pass
+            
+            def enviar_email_bg():
+                try:
+                    send_mail(
+                        assunto,
+                        corpo_email,
+                        'contato@ellevaodontologia.com.br',
+                        ['contato@ellevaodontologia.com.br'],
+                        fail_silently=True,
+                    )
+                except Exception:
+                    pass
+            
+            import threading
+            threading.Thread(target=enviar_email_bg).start()
             
             mensagem_sucesso = f"Muito Obrigado {primeiro_nome} pelo contato. Sua solicitação foi enviada por e-mail e em breve um membro da nossa equipe entrará em contato."
             messages.success(request, mensagem_sucesso)
