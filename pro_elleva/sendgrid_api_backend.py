@@ -6,44 +6,28 @@ from django.conf import settings
 
 class SendGridAPIBackend(BaseEmailBackend):
     """
-    Um backend de e-mail customizado do Django que envia e-mails
-    usando a API HTTP v3 do SendGrid, ignorando as portas SMTP bloqueadas.
+    Backend utilizando a API do Resend.com (gratuito e moderno)
+    Substituindo o SendGrid que ficou caro.
     """
     def send_messages(self, email_messages):
         if not email_messages:
             return 0
         
-        # Lê a chave da API das configurações (settings.py)
-        api_key = getattr(settings, 'SENDGRID_API_KEY', '')
+        api_key = getattr(settings, 'SENDGRID_API_KEY', '') # Vamos manter o nome da variável no settings por enquanto
         if not api_key:
-            print("ERRO: SENDGRID_API_KEY não está configurada no settings.py!")
             return 0
 
         num_sent = 0
         for message in email_messages:
             data = {
-                "personalizations": [
-                    {
-                        "to": [{"email": to} for to in message.to],
-                        "subject": message.subject
-                    }
-                ],
-                "from": {
-                    "email": message.from_email,
-                    # Se tiver um nome (ex: "Contato Elleva <contato@...>")
-                    "name": "Elleva Odontologia"
-                },
-                "content": [
-                    {
-                        "type": "text/plain",
-                        "value": message.body
-                    }
-                ]
+                "from": message.from_email if "contato@" in message.from_email else "Elleva <onboarding@resend.dev>",
+                "to": message.to,
+                "subject": message.subject,
+                "text": message.body
             }
 
-            # Monta a requisição HTTP POST
             req = urllib.request.Request(
-                'https://api.sendgrid.com/v3/mail/send',
+                'https://api.resend.com/emails',
                 data=json.dumps(data).encode('utf-8'),
                 headers={
                     'Authorization': f'Bearer {api_key}',
@@ -54,15 +38,8 @@ class SendGridAPIBackend(BaseEmailBackend):
             try:
                 urllib.request.urlopen(req, timeout=10)
                 num_sent += 1
-            except urllib.error.HTTPError as e:
-                # Caso a API recuse (ex: sender não validado, api key errada)
-                error_body = e.read().decode('utf-8')
-                print(f"SendGrid API HTTPError {e.code}: {error_body}")
-                if not self.fail_silently:
-                    raise
             except Exception as e:
-                print(f"Erro ao conectar com SendGrid API: {e}")
+                print(f"Erro no Resend API: {e}")
                 if not self.fail_silently:
                     raise
-
         return num_sent
