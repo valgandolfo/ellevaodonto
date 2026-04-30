@@ -303,34 +303,51 @@
         {% if messages %}
         <!-- Modal Overlay -->
         <div id="successModal"
-            class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity">
+            class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity p-4">
             <!-- Modal Content -->
             <div
-                class="bg-white rounded-[2rem] p-8 max-w-sm w-full mx-4 shadow-2xl transform transition-all text-center border-t-8 border-[var(--agende-botao-fundo)]">
+                class="bg-white rounded-[2rem] p-6 sm:p-8 max-w-sm w-full shadow-2xl transform transition-all text-center border-t-8 border-[var(--agende-botao-fundo)] relative">
                 <!-- Ícone de Sucesso -->
-                <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-50 mb-6">
-                    <svg class="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="mx-auto flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-green-50 mb-4 sm:mb-6">
+                    <svg class="h-8 w-8 sm:h-10 sm:w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
                 </div>
 
-                <h3 class="text-2xl font-black text-gray-800 mb-2">Sucesso!</h3>
+                <h3 class="text-xl sm:text-2xl font-black text-gray-800 mb-2">Sucesso!</h3>
 
                 {% for message in messages %}
-                <p class="text-gray-600 text-base leading-relaxed mb-8">
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
                     {{ message }}
                 </p>
                 {% endfor %}
 
                 <button type="button" onclick="document.getElementById('successModal').style.display='none'"
-                    class="w-full bg-[var(--agende-botao-fundo)] text-white font-bold rounded-xl px-4 py-4 uppercase tracking-[0.2em] hover:bg-opacity-90 transition-all shadow-lg text-sm">
+                    class="w-full bg-[var(--agende-botao-fundo)] text-white font-bold rounded-xl px-4 py-3 sm:py-4 uppercase tracking-[0.2em] hover:bg-opacity-90 transition-all shadow-lg text-xs sm:text-sm">
                     Ok, entendi
                 </button>
             </div>
         </div>
         {% endif %}
 
-        <form action="{% url 'agendar_consulta' %}" method="POST"
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.getElementById('agendamentoForm');
+                if (form) {
+                    form.addEventListener('submit', function() {
+                        const buttons = form.querySelectorAll('.submit-btn');
+                        buttons.forEach(btn => {
+                            btn.disabled = true;
+                            btn.style.opacity = '0.5';
+                            btn.style.cursor = 'not-allowed';
+                            btn.innerText = 'Enviando...';
+                        });
+                    });
+                }
+            });
+        </script>
+
+        <form id="agendamentoForm" action="{% url 'agendar_consulta' %}" method="POST"
             class="grid md:grid-cols-2 gap-8 p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] shadow-inner bg-[var(--contato-fundo-container)] border border-[var(--contato-borda-container)]">
             {% csrf_token %}
             <div class="space-y-6">
@@ -367,17 +384,18 @@
                 </div>
                 <div class="flex flex-col gap-4 mt-6">
                     <button type="submit" name="metodo_contato" value="email"
-                        class="w-full py-4 rounded-2xl font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-opacity-90 transition-all bg-[var(--contato-botao-fundo)] text-[var(--contato-botao-texto)]">
+                        class="submit-btn w-full py-4 rounded-2xl font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-opacity-90 transition-all bg-[var(--contato-botao-fundo)] text-[var(--contato-botao-texto)]">
                         Solicitar por E-mail
                     </button>
                     <button type="submit" name="metodo_contato" value="whatsapp"
-                        class="w-full py-4 rounded-2xl font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-opacity-90 transition-all bg-green-500 text-white flex justify-center items-center gap-2">
+                        class="submit-btn w-full py-4 rounded-2xl font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-opacity-90 transition-all bg-green-500 text-white flex justify-center items-center gap-2">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.383 0 0 5.383 0 12.031c0 2.124.551 4.198 1.597 6.03l-1.572 5.742 5.875-1.542a12.022 12.022 0 006.131 1.687h.005c6.648 0 12.03-5.383 12.03-12.03S18.68 0 12.031 0zm0 22.018a10.02 10.02 0 01-5.115-1.396l-.367-.218-3.805.998.986-3.712-.239-.38a10.038 10.038 0 01-1.492-5.28c0-5.541 4.51-10.051 10.051-10.051s10.051 4.51 10.051 10.051-4.51 10.051-10.051 10.051zm5.512-7.535c-.302-.151-1.791-.884-2.068-.985-.276-.101-.478-.151-.679.151-.201.302-.78 1-.956 1.201-.176.201-.352.226-.654.075-.302-.151-1.279-.472-2.436-1.506-.902-.806-1.509-1.801-1.685-2.103-.176-.302-.019-.465.132-.616.136-.136.302-.352.453-.528.151-.176.201-.302.302-.503.101-.201.05-.377-.025-.528-.075-.151-.679-1.636-.93-2.24-.244-.588-.493-.509-.679-.518-.176-.008-.377-.01-.578-.01-.201 0-.528.075-.805.377-.276.302-1.056 1.031-1.056 2.515s1.081 2.917 1.232 3.118c.151.201 2.128 3.249 5.155 4.555.72.311 1.282.497 1.721.636.723.23 1.382.197 1.901.119.584-.087 1.791-.732 2.043-1.439.251-.707.251-1.314.176-1.439-.075-.126-.276-.201-.578-.352z"/></svg>
                         Solicitar por WhatsApp
                     </button>
                 </div>
             </div>
         </form>
+
     </div>
 </section>
 
