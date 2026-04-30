@@ -6,3 +6,4 @@ gunicorn
 whitenoise
 python-decouple
 django-pwa==2.0.1
+resend
