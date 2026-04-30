@@ -47,7 +47,7 @@ def agendar_consulta(request):
                     send_mail(
                         assunto,
                         corpo_email,
-                        settings.EMAIL_HOST_USER,  # O remetente TEM que ser o e-mail do Gmail
+                        settings.DEFAULT_FROM_EMAIL,  # Usa o e-mail oficial (contato@...) validado no SendGrid
                         ['contato@ellevaodontologia.com.br'],
                         fail_silently=False,
                     )
