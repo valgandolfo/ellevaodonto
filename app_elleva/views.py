@@ -42,16 +42,17 @@ def agendar_consulta(request):
             corpo_email = f"Nome: {nome}\nTelefone: {telefone_formatado}\nInteresse: {interesse}\nMensagem: {mensagem}"
             
             def enviar_email_bg():
+                from django.conf import settings
                 try:
                     send_mail(
                         assunto,
                         corpo_email,
-                        'contato@ellevaodontologia.com.br',
+                        settings.EMAIL_HOST_USER,  # O remetente TEM que ser o e-mail do Gmail
                         ['contato@ellevaodontologia.com.br'],
-                        fail_silently=True,
+                        fail_silently=False,
                     )
-                except Exception:
-                    pass
+                except Exception as e:
+                    print(f"ERRO AO ENVIAR E-MAIL NO BACKGROUND: {e}")
             
             import threading
             threading.Thread(target=enviar_email_bg).start()
