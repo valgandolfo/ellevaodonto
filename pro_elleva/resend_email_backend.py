@@ -6,7 +6,7 @@ from django.conf import settings
 class ResendEmailBackend(BaseEmailBackend):
     """
     Backend de e-mail usando o SDK oficial do Resend.
-    Requer RESEND_API_KEY configurada nas variáveis de ambiente.
+    Requer RESEND_API_KEY configurada nas variáveis de ambiente (Railway).
     """
 
     def send_messages(self, email_messages):
@@ -32,7 +32,7 @@ class ResendEmailBackend(BaseEmailBackend):
                     "text": message.body,
                 }
 
-                # Suporte a HTML alternativo
+                # Suporte a e-mail HTML (caso exista)
                 if hasattr(message, 'alternatives'):
                     for content, mimetype in message.alternatives:
                         if mimetype == 'text/html':
@@ -40,11 +40,11 @@ class ResendEmailBackend(BaseEmailBackend):
                             break
 
                 email = resend.Emails.send(params)
-                print(f"[RESEND] Enviado com sucesso! ID: {email.get('id', 'N/A')}")
+                print(f"[RESEND] OK - ID: {email.get('id', 'N/A')}")
                 num_sent += 1
 
             except Exception as e:
-                print(f"[RESEND] ERRO ao enviar: {e}")
+                print(f"[RESEND] ERRO: {e}")
                 if not self.fail_silently:
                     raise
 
