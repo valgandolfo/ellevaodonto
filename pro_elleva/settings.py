@@ -211,9 +211,9 @@ PWA_APP_DIR = "ltr"
 PWA_APP_LANG = "pt-BR"
 
 # ===================================================================
-# EMAIL CONFIGURATION (SENDGRID API)
+# EMAIL CONFIGURATION (RESEND API)
 # ===================================================================
-EMAIL_BACKEND = "pro_elleva.sendgrid_api_backend.SendGridAPIBackend"
+EMAIL_BACKEND = "pro_elleva.resend_email_backend.ResendEmailBackend"
 RESEND_API_KEY = config("RESEND_API_KEY", default="")
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default="contato@ellevaodontologia.com.br")
 EMAIL_TIMEOUT = 10
