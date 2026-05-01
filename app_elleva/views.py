@@ -1,13 +1,10 @@
 import re
-import logging
 from urllib.parse import quote
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import TbTabelaAtendimento
-
-logger = logging.getLogger(__name__)
 
 def agendar_consulta(request):
     if request.method == 'POST':
@@ -45,7 +42,7 @@ def agendar_consulta(request):
             corpo_email = f"Nome: {nome}\nTelefone: {telefone_formatado}\nInteresse: {interesse}\nMensagem: {mensagem}"
 
             try:
-                logger.info(f"Tentando enviar e-mail | FROM: {settings.DEFAULT_FROM_EMAIL}")
+                print(f"[EMAIL] Tentando enviar | FROM: {settings.DEFAULT_FROM_EMAIL} | KEY presente: {bool(settings.RESEND_API_KEY)}")
                 send_mail(
                     assunto,
                     corpo_email,
@@ -53,9 +50,9 @@ def agendar_consulta(request):
                     ['contato@ellevaodontologia.com.br'],
                     fail_silently=False,
                 )
-                logger.info("E-mail enviado com sucesso via Resend.")
+                print("[EMAIL] Enviado com sucesso via Resend!")
             except Exception as e:
-                logger.error(f"ERRO AO ENVIAR E-MAIL: {e}")
+                print(f"[EMAIL] ERRO AO ENVIAR: {e}")
 
             mensagem_sucesso = f"Muito Obrigado {primeiro_nome} pelo contato. Sua solicitação foi enviada por e-mail e em breve um membro da nossa equipe entrará em contato."
             messages.success(request, mensagem_sucesso)
