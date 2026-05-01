@@ -64,3 +64,58 @@ def agendar_consulta(request):
             return redirect('/#contato')
 
     return redirect('/#contato')
+
+
+def teste_email(request):
+    """View temporária de diagnóstico — acesse /teste-email/ no browser para testar o Resend."""
+    import json
+    import urllib.request
+    import urllib.error
+    from django.http import HttpResponse
+
+    api_key = getattr(settings, 'RESEND_API_KEY', '')
+    from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'NÃO CONFIGURADO')
+    backend = getattr(settings, 'EMAIL_BACKEND', 'NÃO CONFIGURADO')
+
+    linhas = [
+        f"EMAIL_BACKEND: {backend}",
+        f"DEFAULT_FROM_EMAIL: {from_email}",
+        f"RESEND_API_KEY presente: {bool(api_key)}",
+        f"RESEND_API_KEY (primeiros 8 chars): {api_key[:8] + '...' if api_key else 'VAZIA'}",
+        "---",
+        "Tentando enviar e-mail de teste via API do Resend...",
+    ]
+
+    if not api_key:
+        linhas.append("ERRO: RESEND_API_KEY está vazia! Verifique as variáveis do Railway.")
+        return HttpResponse("\n".join(linhas), content_type="text/plain; charset=utf-8")
+
+    try:
+        url = "https://api.resend.com/emails"
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        }
+        data = {
+            "from": from_email,
+            "to": [from_email],
+            "subject": "Teste Diagnóstico Elleva",
+            "text": "Este é um e-mail de teste enviado pela view de diagnóstico.",
+        }
+        req = urllib.request.Request(
+            url,
+            data=json.dumps(data).encode('utf-8'),
+            headers=headers,
+            method='POST',
+        )
+        with urllib.request.urlopen(req, timeout=15) as response:
+            resp = response.read().decode('utf-8')
+            linhas.append(f"SUCESSO! Resposta do Resend: {resp}")
+    except urllib.error.HTTPError as e:
+        erro = e.read().decode('utf-8')
+        linhas.append(f"ERRO HTTP {e.code}: {erro}")
+    except Exception as e:
+        linhas.append(f"ERRO GERAL: {e}")
+
+    return HttpResponse("\n".join(linhas), content_type="text/plain; charset=utf-8")
+
