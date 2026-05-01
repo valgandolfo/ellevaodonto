@@ -46,7 +46,7 @@ def agendar_consulta(request):
                     assunto,
                     corpo,
                     settings.DEFAULT_FROM_EMAIL,
-                    ['igeracao@hotmail.com'],
+                    ['gandolfo.jvl@gmail.com'],
                     fail_silently=False,
                 )
                 print(f"[EMAIL] Enviado com sucesso para contato@ellevaodontologia.com.br")
