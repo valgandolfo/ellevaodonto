@@ -41,17 +41,18 @@ def agendar_consulta(request):
         elif metodo_contato == 'email':
             assunto = f"Novo Agendamento: {nome} - {interesse}"
             corpo = f"Nome: {nome}\nTelefone: {telefone_formatado}\nInteresse: {interesse}\nMensagem: {mensagem}"
+            destinatario = ['gandolfo.jvl@gmail.com']
             try:
                 send_mail(
                     assunto,
                     corpo,
                     settings.DEFAULT_FROM_EMAIL,
-                    ['gandolfo.jvl@gmail.com'],
+                    destinatario,
                     fail_silently=False,
                 )
-                print(f"[EMAIL] Enviado com sucesso para contato@ellevaodontologia.com.br")
+                print(f"[EMAIL] Enviado com sucesso para {destinatario}")
             except Exception as e:
-                print(f"[EMAIL] ERRO: {e}")
+                print(f"[EMAIL] ERRO ao enviar: {e}")
 
             messages.success(request, f"Muito Obrigado {primeiro_nome}! Sua solicitação foi enviada por e-mail e em breve entraremos em contato.")
             return redirect('/#contato')
