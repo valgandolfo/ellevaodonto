@@ -41,7 +41,7 @@ def agendar_consulta(request):
         elif metodo_contato == 'email':
             assunto = f"Novo Agendamento: {nome} - {interesse}"
             corpo = f"Nome: {nome}\nTelefone: {telefone_formatado}\nInteresse: {interesse}\nMensagem: {mensagem}"
-            destinatario = ['gandolfo.jvl@gmail.com']
+            destinatario = [settings.CONTACT_EMAIL]
             try:
                 send_mail(
                     assunto,
