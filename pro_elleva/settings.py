@@ -215,12 +215,12 @@ PWA_APP_LANG = "pt-BR"
 # ===================================================================
 # Utilizando o backend padrão do Django. Funciona com Titan, Gmail, etc.
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = config("EMAIL_HOST", default="smtp.titan.email")
-EMAIL_PORT = config("EMAIL_PORT", default=465, cast=int)
-EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=False, cast=bool)
-EMAIL_USE_SSL = config("EMAIL_USE_SSL", default=True, cast=bool)
-EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="contato@ellevaodontologia.com.br")
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default="sua-senha-do-titan")
-DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default="Elleva Odontologia <contato@ellevaodontologia.com.br>")
-CONTACT_EMAIL = config("CONTACT_EMAIL", default="contato@ellevaodontologia.com.br")
+EMAIL_HOST = "smtp.titan.email"
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = "contato@ellevaodontologia.com.br"
+EMAIL_HOST_PASSWORD = "Brasil2026@1086"
+DEFAULT_FROM_EMAIL = "Elleva Odontologia <contato@ellevaodontologia.com.br>"
+CONTACT_EMAIL = "contato@ellevaodontologia.com.br"
 EMAIL_TIMEOUT = 10
