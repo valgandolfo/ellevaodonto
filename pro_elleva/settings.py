@@ -222,5 +222,5 @@ EMAIL_USE_SSL = config("EMAIL_USE_SSL", default=True, cast=bool)
 EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="contato@ellevaodontologia.com.br")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default="sua-senha-do-titan")
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default="Elleva Odontologia <contato@ellevaodontologia.com.br>")
-CONTACT_EMAIL = config("CONTACT_EMAIL", default="gandolfo.jvl@gmail.com")
+CONTACT_EMAIL = config("CONTACT_EMAIL", default="contato@ellevaodontologia.com.br")
 EMAIL_TIMEOUT = 10
