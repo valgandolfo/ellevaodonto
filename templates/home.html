@@ -336,12 +336,14 @@
                 if (form) {
                     form.addEventListener('submit', function() {
                         const buttons = form.querySelectorAll('.submit-btn');
-                        buttons.forEach(btn => {
-                            btn.disabled = true;
-                            btn.style.opacity = '0.5';
-                            btn.style.cursor = 'not-allowed';
-                            btn.innerText = 'Enviando...';
-                        });
+                        setTimeout(() => {
+                            buttons.forEach(btn => {
+                                btn.disabled = true;
+                                btn.style.opacity = '0.5';
+                                btn.style.cursor = 'not-allowed';
+                                if (btn.value === 'email') btn.innerText = 'Enviando...';
+                            });
+                        }, 50);
                     });
                 }
             });
