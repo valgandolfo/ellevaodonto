@@ -1,11 +1,12 @@
-venv/
+.git
+.gitignore
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-db.sqlite3
+venv/
+env/
 .env
+db.sqlite3
+*.log
 staticfiles/
-media/
-.DS_Store
-*.tar.gz
